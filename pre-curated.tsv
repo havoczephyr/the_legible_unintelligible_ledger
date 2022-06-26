@@ -1,6 +1,0 @@
-data    "<RSE>blah blah</RSE>"
-data    "<RN>Kevin</RN> ate the pizza"
-data    "I can't believe this [UA] tomato sauce!"
-data    "I need to see <RedactedName time="00:02:34.135-00:02:34.723">Charlie</RedactedName>
-data    "I need to see [RedactedName]"
-data    <RN time="00:02:34.135-00:02:34.723">Charlie</RN>

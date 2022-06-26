@@ -2,34 +2,12 @@ package main
 
 import (
 	"bufio"
-	"encoding/json"
 	"os"
-	"regexp"
 )
 
-type Replacer struct {
-	Regex       regexp.Regexp
-	Replacement string
-}
-
-const JSON_TAGS string = `{
-	"[UA]" : "[Unintelligible:Articulation]",
-	"[UC]" : "[Unintelligible:Crosstalk]",
-	"[BS]" : "[BackgroundSpeech]",
-	"RN" : "RedactedName",
-	"RSE" : "RedactedSensitive",
-	"RSP" : "RedactedSpeaker"
-	}`
-
-func readTags() map[string]string {
-	var result map[string]string
-
-	json.Unmarshal([]byte(JSON_TAGS), &result)
-	return result
-}
-
 func main() {
-	regexTags, _ := regexp.Compile(`(\[[A-Z]+\]|<([A-Z][^>]+)>|<\/([A-Z][^>]+)>)`)
+
+	replacers := BuildReplacers()
 
 	file, err := os.Open("pre-curated.tsv")
 	if err != nil {
@@ -47,9 +25,14 @@ func main() {
 	scanner.Split(bufio.ScanLines)
 
 	for scanner.Scan() {
-		txtline := scanner.Text()
-		regexTags.ReplaceAllString()
-	}
-	tagMap := readTags()
+		textline := scanner.Text()
+		for _, replacer := range replacers {
+			if replacer.Regex.MatchString(textline) {
+				replacement := "${1}" + replacer.Replacement + "${2}"
+				textline = replacer.Regex.ReplaceAllString(textline, replacement)
+			}
 
+		}
+		curated.WriteString(textline + "\n")
+	}
 }
