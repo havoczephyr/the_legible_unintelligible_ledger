@@ -1,0 +1,8 @@
+{
+        "[UA]" : "[Unintelligible:Articulation]",
+        "[UC]" : "[Unintelligible:Crosstalk]",
+        "[BS]" : "[BackgroundSpeech]",
+        "RN" : "RedactedName",
+        "RSE" : "RedactedSensitive",
+        "RSP" : "RedactedSpeaker"
+}
