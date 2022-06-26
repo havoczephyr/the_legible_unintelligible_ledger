@@ -3,15 +3,15 @@
 
 *"The slightly intelligible solution!"*
 
-T_LUL is another small .exe I use because I'm lazy and don't like typing multiple `[Unintelligible:Articulation]` in a single sentence.
+`t_lul` is another small .exe I use because I'm lazy and don't like typing multiple `[Unintelligible:Articulation]` in a single sentence.
 
 Utlizes regular expressions to sift through lines of `.tsv` files and replaces shorthand with the appropriate forms.
 
 ## How to use
 
-stick T_LUL in your path and call it in a folder with a `pre-curated.tsv` in it. it'll generate a `curated.tsv` with everything expanded appropriately. thats it! 
+stick `t_lul` in your path and call it in a folder with a `pre-curated.tsv` in it. it'll generate a `curated.tsv` with everything expanded appropriately. thats it! 
 
-**T_LUL will panic if `pre-curated.tsv` is not present in the working directory.**
+**`t_lul` will panic if `pre-curated.tsv` is not present in the working directory.**
 
 ## Expansion Key
 Shorthand | Expanded
