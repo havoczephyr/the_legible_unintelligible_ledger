@@ -2,6 +2,8 @@ package main
 
 import "regexp"
 
+//Generates the Structured Array that will be used by main.
+//Returns an array of []Replacer.
 func BuildReplacers() []Replacer {
 	var replacers []Replacer
 	var regex *regexp.Regexp
