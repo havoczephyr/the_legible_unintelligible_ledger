@@ -2,22 +2,23 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 )
 
 func main() {
-
+	fmt.Println("The Legible Unintelligible Ledger - Giovanni D'Amico \n Expanding pre-curated.tsv into curated.tsv...")
 	replacers := BuildReplacers()
 
 	file, err := os.Open("pre-curated.tsv")
 	if err != nil {
-		panic(err)
+		fmt.Printf("Could not open or find a pre-curated.tsv file. -%v", err)
 	}
 	defer file.Close()
 
 	curated, err := os.Create("curated.tsv")
 	if err != nil {
-		panic(err)
+		fmt.Printf("Could not create a curated.tsv file. -%v", err)
 	}
 	defer curated.Close()
 
@@ -35,4 +36,5 @@ func main() {
 		}
 		curated.WriteString(textline + "\n")
 	}
+	fmt.Println("Process Complete. Have a nice day 🔥")
 }
