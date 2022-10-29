@@ -36,5 +36,5 @@ func main() {
 		}
 		curated.WriteString(textline + "\n")
 	}
-	fmt.Println("Process Complete. Have a nice day 🔥")
+	fmt.Println("\n🔥 Process Complete. Have a nice day 🔥")
 }
